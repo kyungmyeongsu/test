@@ -70,6 +70,10 @@ a:hover {text-decoration: none;}
 	grid-template-columns: 70% 10% 10% 10%;
 }
 
+.ib-pd-option p {
+	margin: 0;
+}
+
 .ib-pd-option p:first-child {
 	font-weight: bold;
 }
@@ -158,14 +162,21 @@ a:hover {text-decoration: none;}
 }
 
 .ib-pd-tab-line {
-	border-top: 1px solid #999;
-	border-right: 1px solid #999;
-	border-left: 1px solid #999;
+	border: 1px solid #999;
+	/*border-right: 1px solid #999;*/
+	/*border-left: 1px solid #999;*/
+	background: #fff;
 }
 
 .ib-pd-tab-box {
 	border: 1px solid #999;
 	background: #ccc;
+}
+
+/* sticky */
+.sticky-top {
+	top: 30px;
+	/*border-bottom: 1px solid #999; */
 }
 
 .ib-pd-detail {
