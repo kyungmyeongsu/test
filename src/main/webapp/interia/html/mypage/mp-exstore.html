@@ -22,28 +22,7 @@
 	
 	<section class="mp-main">
 		<div class="mp-banner">
-			<div class="mp-banner-cbox">
-				<a href="#">
-					<i class="fas fa-camera"></i>
-					<div class="mp-pic-box">
-						<span class="mp-pic-text">커버 사진 추가</span>
-					</div>
-				</a>
-				<div class="mp-user-info">
-					<p class="mp-user-name">username@bit.com</p>
-					<p class="mp-user-follow"><a>팔로잉 0</a> &nbsp;|&nbsp;<a>팔로워 0</a></p>
-				</div>
-				<div class="mp-profile-setting">
-					<a href="#">
-						<!-- <img src="" class="mp-profile-img"> -->
-						<div class="mp-profile-div">
-							<i class="fas fa-camera"></i>
-							<p>사진 추가</p>
-						</div>
-					</a>
-					
-				</div><!--프로필 사진-->
-			</div>
+			
 		</div><!--배너-->
 		
 		<nav id="mainMenu">
@@ -53,9 +32,9 @@
 						<p>프로필</p>
 						<nav class="mp-bar3" id="submenus">
 							<ul>
-								<li><a>사진</a></li>
-								<li><a>좋아요</a></li>
-								<li><a>스크랩</a></li>
+								<li><a href="mp_post.html">사진</a></li>
+								<li><a href="mp_like.html">좋아요</a></li>
+								<li><a href="mp_scrapbook.html">스크랩</a></li>
 							</ul>
 						</nav>
 					</li>
@@ -63,9 +42,9 @@
 						<p>쇼핑</p>
 						<nav class="mp-bar3" id="submenus">
 							<ul>
-								<li><a>주문/배송 내용</a></li>
-								<li><a>제작 신청 내역</a></li>
-								<li><a>취소/환불 내역</a></li>
+								<li><a href="mp_delivery_list.html">주문/배송 내용</a></li>
+								<li><a href="mp_production_list.html">제작 신청 내역</a></li>
+								<li><a href="mp_cancel_list.html">취소/환불 내역</a></li>
 							</ul>
 						</nav>
 					</li>
@@ -112,32 +91,34 @@
 		</div><!-- 참여수업 타이틀 -->
 
 		<section>
-			<div class="ib-mp-st">
-				<div class="ib-mp-st-imgbox">
-					<img src="../../images/mypage/img2.PNG" width="100%">
-				</div>
-				<div class="ib-mp-st-contbox">
-					<h5>[업체명] 나만의 실버 주얼리 만들기</h5>
-					<div>
-						<i class="far fa-calendar"></i>
-						<p>2018-06-20</p>
+			<div id="exstorelist">
+				<div class="ib-mp-st">
+					<div class="ib-mp-st-imgbox">
+						<img src="../../images/mypage/img2.PNG" width="100%">
 					</div>
-					<div>
-						<i class="far fa-clock"></i>
-						<p>10:00 ~ 13:00 예정</p>
+					<div class="ib-mp-st-contbox">
+						<h5>[업체명] 나만의 실버 주얼리 만들기</h5>
+						<div>
+							<i class="far fa-calendar"></i>
+							<p>2018-06-20</p>
+						</div>
+						<div>
+							<i class="far fa-clock"></i>
+							<p>10:00 ~ 13:00 예정</p>
+						</div>
+						<div>
+							<i class="fas fa-map-marker-alt"></i>
+							<p>대한민국 서울 특별시 역삼동 822-7 목화밀라트 1609호</p>
+						</div>
 					</div>
-					<div>
-						<i class="fas fa-map-marker-alt"></i>
-						<p>대한민국 서울 특별시 역삼동 822-7 목화밀라트 1609호</p>
+					<div class="ib-mp-st-totalbox">
+						<p>50,000 원</p>
+						<p>(1인)</p>
+						<p>예약 완료</p>
 					</div>
-				</div>
-				<div class="ib-mp-st-totalbox">
-					<p>50,000 원</p>
-					<p>(1인)</p>
-					<p>예약 완료</p>
-				</div>
-				<div id="black-fade" class="black_overlay">
-					<button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#reservCBtn">예약 취소</button>
+					<div id="black-fade" class="black_overlay">
+						<button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#reservCBtn">예약 취소</button>
+					</div>
 				</div>
 			</div>
 
@@ -171,7 +152,55 @@
     <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="../../node_modules/popper.js/dist/umd/popper.min.js"></script>
 	<script type="text/javascript" src="../../js/mypage.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
+    <script src="../../js/mp_pfHead.js"></script>
+	<script id ="exstore_div" type="text/x-handlebars-template">
+
+{{#each list}}
+<div class="ib-mp-st">
+					<div class="ib-mp-st-imgbox">
+						<img src="../../images/mypage/{{path}}" width="100%">
+					</div>
+					<div class="ib-mp-st-contbox">
+						<h5>[{{wsnm}}] {{acnm}}</h5>
+						<div>
+							<i class="far fa-calendar"></i>
+							<p>{{actdt}}</p>
+						</div>
+						<div>
+							<i class="far fa-clock"></i>
+							<p>10:00 ~ 13:00 예정</p>
+						</div>
+						<div>
+							<i class="fas fa-map-marker-alt"></i>
+							<p>{{acplc}}</p>
+						</div>
+					</div>
+					<div class="ib-mp-st-totalbox">
+						<p>{{apric}} 원</p>
+						<p>(1인)</p>
+						<p>예약 완료</p>
+					</div>
+					<div id="black-fade" class="black_overlay">
+						<button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#reservCBtn">예약 취소</button>
+					</div>
+				</div>
+{{/each}}
+
+	</script>
+    <script>
+		var trTemplateSrc=$('#exstore_div').html();
+		
+		//위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
+		var templateFn = Handlebars.compile(trTemplateSrc)
+		
+		$.getJSON("../../../json/wsav/list", (data) => {
+		    console.log(data[0].actdt);
+		    console.log(data);
+		    $(exstorelist).html(templateFn({list:data}))
+		});
+	</script>
 </body>
 </html>
