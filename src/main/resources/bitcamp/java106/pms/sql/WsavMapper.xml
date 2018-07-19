@@ -12,10 +12,17 @@
 <mapper namespace="bitcamp.java106.pms.dao.WsavDao">
 
   <resultMap type="Wsav" id="WsavMap">
-    <id column="bno" property="no"/>
-    <result column="titl" property="title"/>
-    <result column="cont" property="content"/>
-    <result column="cdt" property="createdDate"/>
+    <id column="wsano" property="no"/>
+    <result column="acnm" property="title"/>
+    <result column="minno" property="minPerson"/>
+    <result column="maxno" property="maxPerson"/>
+    <result column="actdt" property="experDate"/>
+    <result column="esmt" property="requiredTime"/>
+    <result column="mtcse" property="prepareYn"/>
+    <result column="mtrls" property="prepareCont"/>
+    <result column="apric" property="price"/>
+    <result column="accnt" property="content"/>
+    <result column="acplc" property="addr"/>
   </resultMap>
   
   <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
@@ -25,7 +32,7 @@
        그 메서드를 자동생성할 때 사용할 수 있다.
   -->
   <select id="selectList" 
-          resultType="map" 
+          resultType="Map" 
           parameterType="map">
 select wv.wsano, ws.wsnm, acnm, actdt, esmt, acplc, apric, path
 from INTR_WSAV wv 
