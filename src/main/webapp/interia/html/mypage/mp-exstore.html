@@ -170,7 +170,7 @@
                         "</div>" +
                     "</div>" +
                     "<div class='ib-mp-st-totalbox'>" +
-                        "<p>" + data[i].apric + " 원</p>" +
+                        "<p>" + data[i].apric*data[i].acpt + " 원</p>" +
                         "<p>("+ data[i].acpt +"인)</p>" +
                         "<p>예약 완료</p>" +
                     "</div>" +
@@ -202,8 +202,6 @@
         });
 
  			function listDel(ino) {
-            	// var wsnno = data[ino].wsano;
-            	console.log(ino);
             	$.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
             		var uno = data.no;
             		$.getJSON("../../../json/wsav/delete",{"no": uno, "wsano": ino}, (data) => {
