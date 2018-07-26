@@ -138,8 +138,6 @@
     <!-- <script src="../../js/mp_exstore.js"></script> -->
     <script>
         $.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
-            console.log(data);
-            console.log(data.no);
             var uno = data.no;
             $.getJSON("../../../json/wsav/list",{"no": uno}, (data) => {
                 console.log(data);
