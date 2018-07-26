@@ -1,4 +1,3 @@
-// 서비스 컴포넌트 - 게시물 관련 업무를 처리할 객체
 package bitcamp.java106.pms.service;
 
 import java.util.List;
@@ -14,12 +13,3 @@ public interface QnaService {
     int update(Qna qna);
     int delete(int no, int wsano);
 }
-
-//ver 53 - 인터페이스 추가
-
-
-
-
-
-
-

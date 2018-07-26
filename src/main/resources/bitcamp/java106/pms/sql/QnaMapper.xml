@@ -69,10 +69,3 @@ where mem.memno = #{value}
 <!--     delete from INTR_ACRGTT WHERE memno=#{memno} and wsano=#{wsano} -->
   </delete>
 </mapper>
-
-
-
-
-
-
-

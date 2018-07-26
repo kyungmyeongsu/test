@@ -11,8 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../css/mypage/mp_mypage.css">
     <link rel="stylesheet" type="text/css" href="../../css/mypage/mp-exstore.css">
-    <link rel="stylesheet" href="../../css/mypage/mp_following_popup.css">
-    <link rel="stylesheet" href="../../css/mypage/mp_follower_popup.css">
+    <link rel="stylesheet" href="../../css/mypage/mp_follow_popup.css">
 
     
 </head>
@@ -78,7 +77,7 @@
     <div class="ib-container mp_side">
         <div class="ib-conbox">
         <div class="ib-mp-hbox">
-            <h3>내가 참여한 수업</h3>
+            <h4>내가 참여한 수업</h4>
             <div>
                 <select class="form-control form-control-sm">
                     <option>전체</option>
@@ -138,6 +137,8 @@
     <!-- <script src="../../js/mp_exstore.js"></script> -->
     <script>
         $.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
+            console.log(data);
+            console.log(data.no);
             var uno = data.no;
             $.getJSON("../../../json/wsav/list",{"no": uno}, (data) => {
                 console.log(data);
@@ -168,7 +169,7 @@
                         "</div>" +
                     "</div>" +
                     "<div class='ib-mp-st-totalbox'>" +
-                        "<p>" + data[i].apric*data[i].acpt + " 원</p>" +
+                        "<p>" + data[i].apric + " 원</p>" +
                         "<p>("+ data[i].acpt +"인)</p>" +
                         "<p>예약 완료</p>" +
                     "</div>" +
@@ -199,17 +200,15 @@
             });
         });
 
- 			function listDel(ino) {
-            	$.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
-            		var uno = data.no;
-            		$.getJSON("../../../json/wsav/delete",{"no": uno, "wsano": ino}, (data) => {
-		                
-	            	});
-            	});
-            	location.reload();
+            function listDel(ino) {
+                $.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
+                    var uno = data.no;
+                    $.getJSON("../../../json/wsav/delete",{"no": uno, "wsano": ino}, (data) => {
+                        
+                    });
+                });
+                location.reload();
             }
     </script>
 </body>
 </html>
-
-

@@ -50,11 +50,3 @@ public class QnaController {
     }
 
 }
-
-//ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성
-
-
-
-
-
-

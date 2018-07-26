@@ -47,11 +47,3 @@ public class QnaServiceImpl implements QnaService {
         return qnaDao.delete(params);
     }
 }
-
-//ver 53 - 클래스 추가
-
-
-
-
-
-
