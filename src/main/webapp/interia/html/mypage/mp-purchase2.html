@@ -199,7 +199,7 @@
 							<h6>FLENCE 460 사이드 테이블_2colors</h6>
 						</div>
 					</div><!--제목, 제품 정보-->
-					<div class="sp-rev-like">
+					<!-- <div class="sp-rev-like">
 						<h6>하트를 눌러 만족도를 알려주세요.</h6>
 						<div class="sp-likes">
 							<p>만족도</p> 
@@ -209,7 +209,7 @@
 							<i class="fas fa-heart"></i>
 							<i class="fas fa-heart"></i>
 						</div>
-					</div><!--만족도-->
+					</div> --><!--만족도-->
 					<div class="sp-rev-photo">
 						<h6>사진을 등록해주세요.</h6><span class="sp-font-gray sp-font-small"> (선택)</span><br>
 						<label for="sp-rev-file" class="btn btn-warning">+ 새로운 사진 업로드</label>
@@ -249,5 +249,10 @@
     <script src="../../js/header.js"></script>
     <script src="../../js/footer.js"></script>
     <script src="../../js/mp_pfHead.js"></script>
+    <script>
+    	$.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
+    		console.log(data.no);
+    	});
+    </script>
 </body>
 </html>

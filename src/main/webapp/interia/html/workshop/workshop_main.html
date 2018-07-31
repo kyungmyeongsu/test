@@ -1060,7 +1060,7 @@
         </div>
     </div>
 
-        <div class="fc_category_storeList_view" onclick="fnAdd()">
+        <div class="fc_category_storeList_view more_link" onclick="fnAdd()">
 	        <a class="viewBtn" >더보기</a>
 	    </div>
 	    <div class="fc_storeSubmit">
@@ -1084,14 +1084,13 @@
         $.getJSON("../../../json/wrkshp/list",{"no":7}, (data) => {
         	console.log(data);
         		for (var i = 0; i < data.length; i++) {
-                    $("<div/>").html(
-                        "<div class='fc_category_storeList00_1_bg'>" +
+                    $("<div class='fc_category_storeList00_1_bg'>" +
                             "<div class='fc_category_storeList00_1'>" +
                                 "<div class='fc_category_storeList00_2'>" +
                                     "<img src='../../images/workshop/" + data[i].path + "' style='width: 100%;'>" +
                                 "</div>" +
                                 "<div class='fc_category_storeList00_2_circle'>" +
-                                    "<a href='#'><img src='../../images/workshop/" + data[i].wpath + "'></a>" +
+                                    "<a href='#'><img src='../../images/workshop/" + data[i].lpath + "'></a>" +
                                 "</div>" +
                                 "<div class='fc_category_storeList00_2_title'>" +
                                     "<h1>" + data[i].wsnm + "</h1>" +
@@ -1108,23 +1107,22 @@
                 }
         });
         
-        /*
+        
         var addNo = 7;
+        var addPage = 4;
         function fnAdd() {
-        	addNo += 4;
-        	$.getJSON("../../../json/wrkshp/list",{"no":addNo}, (data) => {
+        	$.getJSON("../../../json/wrkshp/listtwo",{"pageNo":addNo, "pageSize":addPage}, (data) => {
         		console.log(data);
         		$(".fc_category_storeList_bg00").animate({
                     height: '+=400px'}, 400, "linear");
         		for (var i = 0; i < data.length; i++) {
-                    $("<div/>").html(
-                        "<div class='fc_category_storeList00_1_bg'>" +
+                    $("<div class='fc_category_storeList00_1_bg'>" +
                             "<div class='fc_category_storeList00_1'>" +
                                 "<div class='fc_category_storeList00_2'>" +
                                     "<img src='../../images/workshop/" + data[i].path + "' style='width: 100%;'>" +
                                 "</div>" +
                                 "<div class='fc_category_storeList00_2_circle'>" +
-                                    "<a href='#'><img src='../../images/workshop/" + data[i].wpath + "'></a>" +
+                                    "<a href='#'><img src='../../images/workshop/" + data[i].lpath + "'></a>" +
                                 "</div>" +
                                 "<div class='fc_category_storeList00_2_title'>" +
                                     "<h1>" + data[i].wsnm + "</h1>" +
@@ -1139,9 +1137,10 @@
                             "</div>" +
                         "</div>").appendTo(".fc_category_storeList_bg00");
                 }
+                addNo = addNo + 4; 
         	});
         }
-        */
+        
         
         
         

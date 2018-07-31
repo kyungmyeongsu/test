@@ -27,7 +27,7 @@
   <select id="selectList" 
           resultType="Map" 
           parameterType="map">
-	select wsnm, itrod, path, wpath
+	select wsnm, itrod, path, lpath
 	from INTR_WRKSHP wrk
 	inner join INTR_WSPHO ws on wrk.memno = ws.memno
 	order by wrk.WSNM desc
@@ -37,7 +37,7 @@
   <select id="selectListtwo" 
           resultType="Map" 
           parameterType="map">
-    select wsnm, itrod, path, wpath
+    select wsnm, itrod, path, lpath
     from INTR_WRKSHP wrk
     inner join INTR_WSPHO ws on wrk.memno = ws.memno
     order by wrk.WSNM desc
