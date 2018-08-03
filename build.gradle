@@ -68,6 +68,8 @@ dependencies {
     //
     //compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
     
+    // 썸네일
+    compile group: 'net.coobird', name: 'thumbnailator', version: '0.4.8'
     
     // 서블릿 라이브러리
     // => 어느 버전의 서블릿 규칙에 따라 만든 서버에서 실행할 것인지에 따라

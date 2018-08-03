@@ -19,13 +19,13 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="output" path="bin/default"/>
 	<classpathentry output="bin/test" kind="src" path="src/test/resources">
 		<attributes>
 			<attribute name="gradle_scope" value="test"/>
 			<attribute name="gradle_used_by_scope" value="test"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="output" path="bin/default"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10/"/>
 	<classpathentry sourcepath="C:/Users/MyeongSu/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.46/8fe6b8b1360a1fb5d3abdfbf99978c1bc336339/mysql-connector-java-5.1.46-sources.jar" kind="lib" path="C:/Users/MyeongSu/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.46/9a3e63b387e376364211e96827bc27db8d7a92e9/mysql-connector-java-5.1.46.jar">
 		<attributes>
@@ -76,6 +76,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry sourcepath="C:/Users/MyeongSu/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.6/dad3a9fbbedf8781dfd138539cd82638ebad5678/jackson-databind-2.9.6-sources.jar" kind="lib" path="C:/Users/MyeongSu/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.6/cfa4f316351a91bfd95cb0644c6a2c95f52db1fc/jackson-databind-2.9.6.jar">
+		<attributes>
+			<attribute name="gradle_used_by_scope" value="main,test"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry sourcepath="C:/Users/MyeongSu/.gradle/caches/modules-2/files-2.1/net.coobird/thumbnailator/0.4.8/c88c32f2fdaa029816279114e6fe28971b15322e/thumbnailator-0.4.8-sources.jar" kind="lib" path="C:/Users/MyeongSu/.gradle/caches/modules-2/files-2.1/net.coobird/thumbnailator/0.4.8/4f10c440dd7776630aee9da4611a45032db1e041/thumbnailator-0.4.8.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
