@@ -89,7 +89,7 @@ $('#sp-rev-file').fileupload({
 	    console.log('add()...');
 	    $('#revUpBtn').click(function() {
 	        data.submit(); // submit()을 호출하면, 서버에 데이터를 보내기 전에 submit 이벤트가 발생한다.
-	        // location.href = "mp-purchase2.html";
+	        location.href = "mp-purchase2.html";
 	    });
   	},
     done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.

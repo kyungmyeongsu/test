@@ -21,7 +21,6 @@
     <result column="mtrls" property="prepareCont"/>
     <result column="apric" property="price"/>
     <result column="accnt" property="content"/>
-    <result column="acplc" property="addr"/>
   </resultMap>
   
   <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
@@ -33,7 +32,7 @@
   <select id="selectList" 
           resultType="Map" 
           parameterType="map">
-select wsnm, actt.wsano, acnm, actdt, avst, avet, acplc, apric, path, name, acpt
+select wsnm, actt.wsano, acnm, actdt, ws.baddr, avst, avet, apric, path, name, acpt
 from INTR_MEMBER mem
 inner join INTR_ACRGTT actt on mem.memno = actt.memno
 inner join INTR_WSAV wsa on actt.wsano = wsa.wsano
