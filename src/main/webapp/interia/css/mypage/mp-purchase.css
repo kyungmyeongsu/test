@@ -37,7 +37,7 @@ a,a:hover {color: #000; text-decoration: none}
 
 .ib-mp-pur-imgbox {
 	flex-basis: 160px;
-    height: 160px;
+	height: 160px;
     overflow: hidden;
 }
 
@@ -127,6 +127,11 @@ a,a:hover {color: #000; text-decoration: none}
 
 .modal-footer {
 	justify-content: center;
+	border-top: 0;
+}
+
+.modal-header {
+	border-bottom: 0;
 }
 
 .delconfirmbtn {
