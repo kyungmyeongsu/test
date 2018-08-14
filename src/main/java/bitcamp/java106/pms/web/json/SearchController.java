@@ -2,6 +2,7 @@ package bitcamp.java106.pms.web.json;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import bitcamp.java106.pms.domain.Works;
@@ -28,8 +29,11 @@ public class SearchController {
     }
     
     @RequestMapping("workslist")
-    public Object workslist(String title) {        
-        return searchService.workslist(title);
+    public Object workslist(
+            @RequestParam("title") String title,
+            @RequestParam("startNo") int startNo,
+            @RequestParam("pageNo") int pageNo) {        
+        return searchService.workslist(title, startNo, pageNo);
     }
     
     @RequestMapping("{no}")

@@ -55,6 +55,7 @@
 	<div class="sp-seemore">
 	    <div>
 	    <button id="more_wbtn" type="button" class="btn btn-warning btn-lg btn-block sp-btn-seemore">더보기</button>
+	    <button id="more_sbtn" type="button" class="btn btn-warning btn-lg btn-block sp-btn-seemore">더보기</button>
 	    </div>
 	</div>
     <footer id="footer">
@@ -106,7 +107,6 @@
 	
 	$('#more_wbtn').click(function() {
 		startNo++;
-		console.log(startNo);
 		$.getJSON("../../../json/works/list",{"startNo": startNo,"pageNo": pageNo} , (data) => {
 			for (var i = 0; i < data.length; i++) {
 				$(`<a class="card" href="works_detail.html?`+ data[i].wno +`">

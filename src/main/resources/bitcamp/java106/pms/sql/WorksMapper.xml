@@ -49,7 +49,7 @@
     inner join INTR_WPHO wp on w.wno = wp.wno 
     inner join INTR_WRKSHP ws on w.memno = ws.memno
     
-    <!-- where wp.mipt = "y" --> <!-- 메인 사진일 경우 -->
+    where wp.mipt = "y" <!-- 메인 사진일 경우 -->
     order by w.WNO desc
     limit #{startNo}, #{pageNo}
   </select>
