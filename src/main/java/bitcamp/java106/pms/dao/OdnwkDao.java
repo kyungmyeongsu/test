@@ -8,6 +8,7 @@ import bitcamp.java106.pms.domain.Odnwk;
 public interface OdnwkDao {
     int delete(Map<String,Object> params) ;
     List<Odnwk> selectList(int no);
+    List<Odnwk> selectSellerSite();
     List<Odnwk> selectRevList(int no);
     int insert(Odnwk odnwk);
     int update(Odnwk odnwk);
@@ -15,4 +16,6 @@ public interface OdnwkDao {
     Odnwk selectOne(int no);
     List<Odnwk> selectRevOne(int no);
     List<Odnwk> selectRevListOne(int no);
+    List<Odnwk> selectRevCount(int no);
+    List<Odnwk> selectRevdetail(Map<String,Object> params);
 }

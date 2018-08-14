@@ -15,11 +15,11 @@ $('#search_btn').click(function() {
 	search_cont();
 });
 
-function search_enter() {
-	if (event.keyCode == 13) {
-			search_cont();
-	}
-}
+$('input[type="text"]').keydown(function() {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+    }
+});
 
 function search_cont() {
 
@@ -27,12 +27,14 @@ function search_cont() {
 	$('#work_list').html("");
 	$('#store_title').html("");
 	$('#store_list').html("");
+	$('#search_No').html("");
 
 	var ser_value = $('#search_text').val();
 	var select_val = $('#search-select option:selected').val();
 
 	if (ser_value == "") {
 		// alert('다시 입력해주세요!');
+		$('#search_No').html(`<h3>'<span>`+ ser_value +`</span>' 검색 결과가 없습니다.</h3>`);
 	} 
 	else if (ser_value != "") {
 		switch(select_val) {
@@ -79,6 +81,9 @@ function search_cont() {
 				                </div>`).appendTo('#store_list');
 							}
 						}
+						if (work_val.length == 0 && store_val.length == 0) {
+							$('#search_No').html(`<h3>'<span>`+ ser_value +`</span>' 검색 결과가 없습니다.</h3>`);
+						}
 					});
 				});
 			break;
@@ -104,7 +109,7 @@ function search_cont() {
 			                </div>`).appendTo('#work_list');
 						}
 					} else
-					alert('잘못 된 값 입니다.!');
+					$('#search_No').html(`<h3>'<span>`+ ser_value +`</span>' 검색 결과가 없습니다.</h3>`);
 					
 				});
 			break;
@@ -128,7 +133,7 @@ function search_cont() {
 			                </div>`).appendTo('#store_list');
 						}
 					} else
-					alert('잘못 된 값 입니다.!');
+					$('#search_No').html(`<h3>'<span>`+ ser_value +`</span>' 검색 결과가 없습니다.</h3>`);
 				});
 			break;
 		}

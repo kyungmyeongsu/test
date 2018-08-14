@@ -10,5 +10,6 @@ public interface SearchService {
     // 업무 용어를 사용하라!
     List<Works> list(String title);
     List<Workshop> storelist(String title);
+    List<Works> workslist(String title);
     Works get(int no);
 }

@@ -161,3 +161,13 @@ a:hover {
     border-bottom:1px solid black;
     padding-top: 2em;
 }
+
+
+#search_No h3 {
+    text-align: center;
+    line-height: 5em;
+}
+
+#search_No>h3>span {
+    color: #ffc001;
+}

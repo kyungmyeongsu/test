@@ -26,13 +26,16 @@
                     <option value="1">작품</option>
                     <option value="2">공방</option>
                 </select>
-                <input id="search_text" type="text" name="searchInput" onkeydown="JavaScript:search_enter();">
+                <input id="search_text" type="text" name="searchInput">
                 <img id="search_btn" src="../../images/header_serach.png">
             </form>
         </div>
 
         
-        <form id="search_list_box" class="form-horizontal sl-form-style">
+        <section id="search_list_box" class="form-horizontal sl-form-style">
+            <section id="search_No">
+                <!-- <h3>''값은 없습니다. 다시 입력해주세요.</h3> -->
+            </section>
             <!-- 제품 -->
             <div id="work_title"></div>
 
@@ -53,7 +56,7 @@
                 <!-- 반복문 끝 -->
             </div>
             
-        </form>
+        </section>
     </div>
 
 

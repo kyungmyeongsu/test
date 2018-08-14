@@ -29,8 +29,28 @@ public class OdnwkServiceImpl implements OdnwkService {
     }
     
     @Override
+    public List<Odnwk> listSellerSite() {
+        return odnwkDao.selectSellerSite();
+    }
+    
+    @Override
     public List<Odnwk> revList(int no) {
         return odnwkDao.selectRevList(no);
+    }
+    
+    @Override
+    public List<Odnwk> revCount(int no) {
+        return odnwkDao.selectRevCount(no);
+    }
+    
+    @Override
+    public List<Odnwk> revDetail(int wno, int startNo, int pageNo) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("wno", wno);
+        params.put("startNo", (startNo - 1) * pageNo);
+        params.put("pageNo", pageNo);
+        
+        return odnwkDao.selectRevdetail(params);
     }
     
     @Override

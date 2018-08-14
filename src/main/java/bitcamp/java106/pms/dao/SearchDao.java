@@ -8,5 +8,6 @@ import bitcamp.java106.pms.domain.Workshop;
 public interface SearchDao {
     List<Works> selectList(String title);
     List<Workshop> storeList(String title);
+    List<Works> worksList(String title);
     Works selectOne(int no);
 }

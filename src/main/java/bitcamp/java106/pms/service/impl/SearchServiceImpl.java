@@ -30,6 +30,11 @@ public class SearchServiceImpl implements SearchService {
     }
     
     @Override
+    public List<Works> workslist(String title) {
+        return searchDao.worksList(title);
+    }
+    
+    @Override
     public Works get(int no) {
         return searchDao.selectOne(no);
     }

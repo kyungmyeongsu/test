@@ -29,7 +29,6 @@ header {
    height:120px;
    margin: 0 auto;
    box-sizing: border-box;
-   overflow: hidden;
    transition: height 0.5s;
 }
 .header_logo {
@@ -80,7 +79,7 @@ header {
 .header_search {
    display: flex;
    align-items: flex-end;
-   justify-content: space-between;
+   justify-content: flex-end;
    height: 80px;
    float: right;
    padding-bottom: 0.3125em;

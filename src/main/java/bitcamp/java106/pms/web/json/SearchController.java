@@ -27,6 +27,11 @@ public class SearchController {
         return searchService.storelist(title);
     }
     
+    @RequestMapping("workslist")
+    public Object workslist(String title) {        
+        return searchService.workslist(title);
+    }
+    
     @RequestMapping("{no}")
     public Works view(@PathVariable int no) throws Exception {
         return searchService.get(no);

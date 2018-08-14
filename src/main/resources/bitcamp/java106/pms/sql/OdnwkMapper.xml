@@ -34,7 +34,7 @@
   <select id="selectList" 
           resultType="Map" 
           parameterType="map">
-SELECT onk.wono, qctt, odr.odno, odr.memno, wtitl, abnm, abvl, path FROM INTR_ODNWK onk
+SELECT onk.wono, qctt, wks.wno, odr.odno, odr.memno, wtitl, abvl, path FROM INTR_ODNWK onk
 inner join INTR_WORKS wks on onk.wno = wks.wno
 inner join INTR_WKOT wkt on wks.wno = wkt.wno
 inner join INTR_WPHO wpho on wks.wno = wpho.wno
@@ -45,7 +45,7 @@ where odr.memno = #{value}
   <select id="selectRevList" 
           resultType="Map" 
           parameterType="map">
-SELECT onk.wono, qctt, odr.odno, odr.memno, wtitl, abnm, abvl, path, repath FROM INTR_ODNWK onk
+SELECT onk.wono, qctt, wks.wno, odr.odno, odr.memno, wtitl, abvl, path, repath FROM INTR_ODNWK onk
 inner join INTR_WORKS wks on onk.wno = wks.wno
 inner join INTR_WKOT wkt on wks.wno = wkt.wno
 inner join INTR_WPHO wpho on wks.wno = wpho.wno
@@ -75,6 +75,32 @@ inner join INTR_WPHO wpho on wks.wno = wpho.wno
 inner join INTR_ORDER odr on onk.odno = odr.odno
 inner join INTR_RVPHO rpho on onk.wono = rpho.wono
 where onk.wono = #{value}
+  </select>
+  
+  <select id="selectRevCount" 
+          resultType="Map" 
+          parameterType="map">
+SELECT count(*) as count FROM INTR_ODNWK onk
+inner join INTR_WORKS wks on onk.wno = wks.wno
+inner join INTR_WKOT wkt on wks.wno = wkt.wno
+inner join INTR_WPHO wpho on wks.wno = wpho.wno
+inner join INTR_ORDER odr on onk.odno = odr.odno
+inner join INTR_RVPHO rpho on onk.wono = rpho.wono
+where wks.wno = #{wno}
+  </select>
+  
+  <select id="selectRevdetail" 
+          resultType="Map" 
+          parameterType="map">
+SELECT onk.wono, qctt, wks.wno, odr.odno, odr.memno, wtitl, abvl, path, repath, mutua FROM INTR_ODNWK onk
+inner join INTR_WORKS wks on onk.wno = wks.wno
+inner join INTR_WKOT wkt on wks.wno = wkt.wno
+inner join INTR_WPHO wpho on wks.wno = wpho.wno
+inner join INTR_WRKSHP wkp on wks.memno = wkp.memno
+inner join INTR_ORDER odr on onk.odno = odr.odno
+inner join INTR_RVPHO rpho on onk.wono = rpho.wono
+where wks.wno = #{wno}
+limit #{startNo}, #{pageNo}
   </select>
   
   <insert id="insert" parameterType="Odnwk"
