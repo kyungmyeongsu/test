@@ -32,18 +32,32 @@ $.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
 		console.log(data);
 		for (var item of data) {
 			var rdate = new Date(item.registeredDate);
-			item.ryear = rdate.getFullYear();
-			item.rmonth = rdate.getMonth() + 1;
-			item.rday = rdate.getDate() +1;
+			
+			var date = new Date(rdate);
+			var year = date.getFullYear();
+			var month =(1+date.getMonth());
+			month = month >= 10 ? month:'0' + month;
+			var day = date.getDate();
+			day = day >= 10 ? day:'0' + day;
+			
+			item.ryear = year;
+			item.rmonth = month;
+			item.rday = day;
 			
 			var modifiedDate =  item.modifiedDate;
 			console.log(modifiedDate);
-			
 			if(modifiedDate !== null && modifiedDate !== '') {
 				var mdate = new Date(modifiedDate);
-				item.myear = mdate.getFullYear();
-				item.mmonth= mdate.getMonth() + 1;
-				item.mday= mdate.getDate() +1;
+				var date = new Date(mdate);
+				var year = date.getFullYear();
+				var month =(1+date.getMonth());
+				month = month >= 10 ? month:'0' + month;
+				var day = date.getDate();
+				day = day >= 10 ? day:'0' + day;
+				
+				item.myear = year;
+				item.mmonth= month;
+				item.mday= day;
 				}
 			else {
 			}
@@ -89,13 +103,13 @@ adWorksData.on('click', '.ad-works-update', function(e) {
 $('#ad-wors-addForm').click(function(e, action) {
 	if (action === 'update') {
 		console.log(action);
-		$('#fileupload1').fileupload('option', 'url', '../../../json/works/update');
+		$('#fileupload1').fileupload('option', 'url', serverRoot + '/json/works/update');
 		$('.modal-title').text("작품정보수정");
 		$('#addBtn').attr("id","updBtn");
 		$('#updBtn').text("수정하기");
 		
 	} else {
-		$('#fileupload1').fileupload('option', 'url', '../../../json/works/add');
+		$('#fileupload1').fileupload('option', 'url', serverRoot +'/json/works/add');
 		$('.modal-title').text("작품등록");
 		$('#updBtn').attr("id","addBtn");
 		$('#addBtn').text("등록하기");
@@ -111,7 +125,7 @@ $('#ad-wors-addForm').click(function(e, action) {
 var imgFiles;
 
 $('#fileupload2').fileupload({
-	url: '../../../json/works/addWorksDetail',        // 서버에 요청할 URL
+	url: serverRoot + '/json/works/addWorksDetail',        // 서버에 요청할 URL
     dataType: 'json',
     autoUpload: true,
     done: function (e, data) { 
@@ -197,19 +211,20 @@ $('#fileupload1').fileupload({
 			data.submit();
 		});
 	},
-	done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+	success: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
 		console.log('done()...');
 		console.log(data.result);
-	}
+		location.reload(true);
+    }
 });
 /*delete*/
 function worksdel(no) {
     if (window.confirm("삭제하시겠습니까?") == false) 
     	return;
-    $.get("../../../json/works/delete", {"wno": no}, () => {
+    $.get(serverRoot + "/json/works/delete", {"wno": no}, () => {
    	 
     });
-/*      location.reload(); */  
+    location.reload(); 
 }
 
 /*미리보기 삭제 이벤트*/

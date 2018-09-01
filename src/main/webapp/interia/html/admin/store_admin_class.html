@@ -149,16 +149,16 @@
 											<div class="ad-apList-right">신청 인원</div>
 										</div>
 										<div class="ad-apList-row">
-											<div class="ad-apList-left">신청자 닉네임 data</div>
-											<div class="ad-apList-right">신청 인원 data</div>
+											<div class="ad-apList-left">소확행이좋아</div>
+											<div class="ad-apList-right">4 명</div>
 										</div>
 										<div class="ad-apList-row">
-											<div class="ad-apList-left">신청자 닉네임 data</div>
-											<div class="ad-apList-right">신청 인원 data</div>
+											<div class="ad-apList-left">이쁜집에살자</div>
+											<div class="ad-apList-right">2 명</div>
 										</div>
 										<div class="ad-apList-row">
-											<div class="ad-apList-left">신청자 닉네임 data</div>
-											<div class="ad-apList-right">신청 인원 data</div>
+											<div class="ad-apList-left">인테리어가좋아</div>
+											<div class="ad-apList-right">2 명</div>
 										</div>
 									</div>
 								</div>
@@ -179,7 +179,7 @@
 {{#each list}}
 <div class="ad-class-wrapper">
   <div class="ad-class-card">
-    <div class="ad-class-card-img"><img src="../../../files/{{path}}_150x150.jpg"></div>
+    <div class="ad-class-card-img"><img src="../../../files/workshop/activity/{{path}}_200x200.jpg"></div>
     <div class="ad-class-card-content"><p class="ad-class-card-title">{{acnm}}</p><p>{{accnt}}</p></div>
     <div class="ad-class-card-info"><p>최대인원 {{maxno}}명</p><p>가격 {{apric}} 원</p><p>체험일자</p><p>{{year}}-{{month}}-{{day}}</p><p>({{hour}}시간{{minute}}분)</p></div>
     <div class="ad-class-opt ad-btn-group-collapse">
@@ -248,9 +248,16 @@ $.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
 		console.log(data);
 		for (var item of data) {
 			var date = new Date(item.actdt);
-			item.year = date.getFullYear();
-			item.month = date.getMonth() + 1;
-			item.day = date.getDate();
+			var year = date.getFullYear();
+			var month =(1+date.getMonth());
+			month = month >= 10 ? month:'0' + month;
+			var day = date.getDate();
+			day = day >= 10 ? day:'0' + day;
+			
+			item.year = year;
+			item.month = month;
+			item.day = day;
+			
 			var str = item.time.split(":");
 			item.hour = str[0];
 			item.minute = str[1];

@@ -1,7 +1,9 @@
 package bitcamp.java106.pms.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import bitcamp.java106.pms.domain.WorksPhoto;
 import bitcamp.java106.pms.domain.Workshop;
 import bitcamp.java106.pms.domain.Wspho;
 
@@ -29,11 +31,14 @@ public interface WorkshopService {
     List<Workshop> listbathtwo(int pageNo, int pageSize);
     
     
-    List<Workshop> listSellerSite();
+    List<Workshop> listSellerSite(int no);
     List<Workshop> listIntroduce();
-    List<Workshop> listSellerSiteBanner();
+    List<Workshop> listSellerSiteBanner(int no);
     Workshop get(int no);
     int update(Workshop workshop);
     int updateIntroduce(Workshop workshop);
     int delete(int no);
+    int addAdpic(int no, ArrayList<Wspho> workshopPhotos);
+    int adSns(String kind, Workshop workshop);
+    Object getInfo(int no);
 }

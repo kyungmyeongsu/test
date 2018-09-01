@@ -1,7 +1,10 @@
-$.getJSON(serverRoot + "/json/wsav/sellerSiteList", (data) => {
+var no = location.href.split("=")[1];
+
+$.getJSON(serverRoot + "/json/wsav/sellerSiteList",{"no":no}, (data) => {
+	console.log("--------------");
 	console.log(data);
 	$("<a href='./sellerSite_ex.html'>" +
-			"<img src='../../images/workshop/" + data[0].path + "'>" +
+			"<img src='../../../files/workshop/activity/" + data[0].path + "' style='width:100%; height:100%;'>" +
 			"</a>"
 	).appendTo(".sellerSite_ex_img");
 	$("<p>" + data[0].acnm + "</p>" +

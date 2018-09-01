@@ -41,7 +41,7 @@ public class WorksController {
     @ResponseStatus(HttpStatus.CREATED)
     public void add(Works works, MultipartFile[] files) throws Exception {
 
-        String filesDir = sc.getRealPath("/files");
+        String filesDir = sc.getRealPath("/files/works");
         
         
         ArrayList<WorksPhoto> worksPhotos = new ArrayList<>();
@@ -98,15 +98,15 @@ public class WorksController {
     }
     
     @RequestMapping("listSellerSite")
-    public Object listSellerSite() {       
-        return worksService.listSellerSite();
+    public Object listSellerSite(int no) {
+        return worksService.listSellerSite(no);
     }
     
     @RequestMapping("update")
     @ResponseStatus(HttpStatus.OK) // 기본 값이 OK 이다. 
     public void update(Works works, MultipartFile[] files) throws Exception {
         
-        String filesDir = sc.getRealPath("/files");
+        String filesDir = sc.getRealPath("/files/works");
         
         System.out.println(works.getWorkshopNumber());
         ArrayList<WorksPhoto> worksPhotos = new ArrayList<>();
@@ -157,13 +157,12 @@ public class WorksController {
     // 장바구니 담기
     @RequestMapping("add/buscket")
     public void addBuscket(@RequestParam("worksNumber") int worksNumber,
-            @RequestParam("optionNumber") int optionNumber,
+            @RequestParam("optionValue") String optionValue,
             HttpSession session) throws Exception {
         Member member = (Member)session.getAttribute("loginUser");
-        worksService.addBuscket(worksNumber, member.getNo(), optionNumber);
+        worksService.addBuscket(worksNumber, member.getNo(), optionValue);
     }
     
-    // 장바구니 리스트 출력 1 - 공통 공방명 추출
     @RequestMapping("buscketWorkshop")
     public Object buscketWorkshop(HttpSession session) {
         Member member = (Member)session.getAttribute("loginUser");
@@ -178,6 +177,23 @@ public class WorksController {
 
         System.out.println(buscket);
         return buscket;
+    }
+    
+    // 선택시 제거
+    @RequestMapping("buscketDelete/{worksNumber}")
+    public void buscketDelete(@PathVariable("worksNumber") int worksNumber,
+            HttpSession session) {
+        Member member = (Member) session.getAttribute("loginUser");
+        
+        worksService.buscketDelete(member.getNo(), worksNumber);
+    }
+    
+    // 구매시 장바구니에 관련된 해당 회원 전체 제거
+    @RequestMapping("buscketAllDelete")
+    public void buscketAllDelete(HttpSession session) {
+        Member member = (Member) session.getAttribute("loginUser");
+        
+        worksService.buscketAllDelete(member.getNo());
     }
     
     //관리자 판매작품List 
@@ -197,7 +213,7 @@ public class WorksController {
         
         HashMap<String,Object> jsonData = new HashMap<>();
         
-        String filesDir = sc.getRealPath("/files");
+        String filesDir = sc.getRealPath("/files/works");
         
         String filename = UUID.randomUUID().toString();
         jsonData.put("filename", filename);

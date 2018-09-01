@@ -31,8 +31,16 @@ public class WsavServiceImpl implements WsavService {
     }
     
     @Override
-    public List<Wsav> sellerSiteList() {
-        return wsavDao.selectSellerSiteList();
+    public List<Wsav> sellerSiteList(int no) {
+        return wsavDao.selectSellerSiteList(no);
+    }
+    
+    @Override
+    public List<Wsav> sellerSiteListWsa(int memno, int wsano) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("memno", memno);
+        params.put("wsano", wsano);
+        return wsavDao.selectSellerSiteListWsa(params);
     }
     
     @Override
@@ -55,6 +63,7 @@ public class WsavServiceImpl implements WsavService {
     
     @Override
     public void add(Wsav wsav, ArrayList<Wkacp> activityphotos) {
+        System.out.println(activityphotos);
         wsavDao.insert(wsav);
         
        int workshopActivityNo =  wsavDao.selectRecent().getNo();

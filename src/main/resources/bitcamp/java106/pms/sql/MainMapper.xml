@@ -15,12 +15,14 @@
     <result column="nknm" property="nickname"/>
     <result column="tname" property="hashtag"/>
     <result column="crtdt" property="comments"/>
+    <result column="mppho" property="profile"/>
+    <result column="wno" property="lno"/>
   </resultMap>
   
   <select id="selectListInMain" 
           resultMap="BoardMap"
           parameterType="map">
-    SELECT b.BNO, b.PATH, COUNT(l.bno) AS cnt, m.NKNM, b.BOCTT
+    SELECT b.BNO, m.MPPHO, b.PATH, COUNT(l.bno) AS cnt, m.NKNM, b.BOCTT
     FROM INTR_BOARD b 
     LEFT OUTER JOIN INTR_LKMB l 
     ON b.BNO = l.BNO 
@@ -34,15 +36,15 @@
   <select id="selectListWithHashtag" 
           resultMap="BoardMap"
           parameterType="String">
-    SELECT w.WNO, wp.PATH 
-    FROM INTR_WORKS w 
+    SELECT w.WNO, wp.PATH FROM INTR_WORKS w 
     LEFT OUTER JOIN INTR_WPHO wp 
     ON w.WNO = wp.WNO 
     INNER JOIN INTR_WTMACH wt 
     ON w.WNO = wt.WNO 
     INNER JOIN INTR_HASHTAG h 
     ON wt.HTNO = h.HTNO 
-    WHERE h.TNAME = #{value} 
+    WHERE h.TNAME = #{value}
+    GROUP BY wno 
     order by w.wno desc 
     limit 0, 8
   </select>
@@ -58,9 +60,10 @@
     ON ws.MEMNO = wo.MEMNO 
     LEFT OUTER JOIN INTR_ODNWK od 
     ON wo.WNO = od.WNO 
-    WHERE wp.PCLSF = '홍보이미지' 
+    WHERE wp.PCLSF = 'profile' 
     GROUP BY ws.MEMNO 
     ORDER BY cnt DESC
+    limit 0, 8
   </select>
 </mapper>
 

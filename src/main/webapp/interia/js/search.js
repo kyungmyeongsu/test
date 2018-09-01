@@ -48,10 +48,10 @@ function search_cont() {
 							work_titl.appendTo('#work_title');
 							for (var i = 0; i < work_val.length; i++) {
 								$(`<div class="sl-bucket">
-				                    <a href="#" class="">
+				                    <a href="../works/works_detail.html?`+ work_val[i].wno + `" class="">
 				                        <div class="card card_box_pad">
 				                            <div class="card-img-box">
-				                                <img class="card-img-top" src="../../images/works/works_list/`+ work_val[i].path +`">
+				                                <img class="card-img-top" src="../../../files/works/`+ work_val[i].path +`">
 				                            </div>
 				                            <div class="card-body">
 				                                <h5 class="card-title mb-1">`+ work_val[i].wtitl +`</h5><br>
@@ -64,6 +64,8 @@ function search_cont() {
 				                </div>`).appendTo('#work_list');
 							}
 						}
+						
+						// 공방 관련 검색 (전체 선택에서)
 						if (store_val.length != 0) {
 							store_titl.appendTo('#store_title');
 							for (var i = 0; i < store_val.length; i++) {
@@ -71,7 +73,7 @@ function search_cont() {
 				                    <a href="#" class="">
 				                        <div class="card card_box_pad">
 				                            <div class="card-img-box">
-				                                <img class="card-img-top" src="../../images/workshop/`+ store_val[i].path +`">
+				                                <img class="card-img-top" src="../../../files/workshop/`+ store_val[i].path +`">
 				                            </div>
 				                            <div class="card-body">
 				                                <h5 class="card-title mb-1">`+ store_val[i].wsnm +`</h5><br>
@@ -87,16 +89,17 @@ function search_cont() {
 					});
 				});
 			break;
+			// 제품 선택시
 			case '1':
 				$.getJSON("../../../json/search/list",{"title": ser_value}, (data) => {
 					if (data.length != 0) {
 						work_titl.appendTo('#work_title');
 						for (var i = 0; i < data.length; i++) {
 							$(`<div class="sl-bucket">
-			                    <a href="#" class="">
+			                    <a href="../works/works_detail.html?`+ data[i].wno + `" class="">
 			                        <div class="card card_box_pad">
 			                            <div class="card-img-box">
-			                                <img class="card-img-top" src="../../images/works/works_list/`+ data[i].path +`">
+			                                <img class="card-img-top" src="../../../files/works/`+ data[i].path +`">
 			                            </div>
 			                            <div class="card-body">
 			                                <h5 class="card-title mb-1">`+ data[i].wtitl +`</h5><br>
@@ -113,6 +116,7 @@ function search_cont() {
 					
 				});
 			break;
+			// 공방 선택시
 			case '2': 
 				
 				$.getJSON("../../../json/search/storelist",{"title": ser_value}, (data) => {
@@ -123,7 +127,7 @@ function search_cont() {
 			                    <a href="#" class="">
 			                        <div class="card card_box_pad">
 			                            <div class="card-img-box">
-			                                <img class="card-img-top" src="../../images/workshop/`+ data[i].path +`">
+			                                <img class="card-img-top" src="../../../files/workshop/`+ data[i].path +`">
 			                            </div>
 			                            <div class="card-body">
 			                                <h5 class="card-title mb-1">`+ data[i].wsnm +`</h5><br>

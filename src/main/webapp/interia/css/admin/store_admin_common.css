@@ -127,10 +127,11 @@ input[type="time"] {
 /* sidenavbar 가게이미지 */
 
 .ad-navbar-img {
-    height: 100px;
+/*     height: 100px;
     width: 100px;
     background-color: white;
-    border-radius: 50px;
+    border-radius: 50px; */
+        padding-bottom: 20px;
 }
 
 .ad-navbar-storename > a {
@@ -299,10 +300,9 @@ input[type="time"] {
 
 .ad-card-wrapper {
     margin-bottom: 1rem !important;
-
-    flex: 0 0 25%;
-    max-width: 25%;
-
+/*     flex: 0 0 25%; */
+	flex: 33;
+/*     max-width: 25%; */
     position: relative;
     width: 1720px;
     min-height: 1px;
@@ -462,6 +462,17 @@ input[type="time"] {
 
 select::-ms-expand {
     display: none;
+}
+
+#odstt {
+  width: 200px;
+  font-family: inherit;
+  background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #ffc001;
+  border-radius: 0px;
 }
 
 /* Arrow */
@@ -779,6 +790,8 @@ th label {
     border-radius: 5px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
 }
 .ad-image-notice {
 	display:table-cell; 
@@ -873,11 +886,12 @@ position: relative;
     padding-bottom: 15px;
 }
 
-/*
+
 .ad-card-data-value {
-    
+    display: flex;
+    justify-content:space-between;
+    padding-right: 40px;
 }
-*/
 
 /***** 관리자메인 End *****/
 
@@ -910,7 +924,7 @@ position: relative;
 }
 
 .ad-input {
-    width: 30%;
+    width: 50%;
     padding: 0;
     display: flex;
     align-items: center;
@@ -1037,10 +1051,17 @@ textarea {
 .tag-editor{
 	width:80%;
 }
+
+
 /***** 작품관리 End*****/
 
 /***** 판매관리 *****/
 
+.ad-order-update {
+	cursor: pointer;
+	color: #1c2036;
+	font-weight: bold;
+}
 .ad-searchInfo {
     margin-right: 15px;
 }
@@ -1090,7 +1111,32 @@ textarea {
 .ad-modal-info-data {
     margin-right: 10px;
 }
-
+.ad-order-form-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ffc001;
+}
+.ad-order-optView {
+  width: 500px;
+  height: 100px;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+  border-image: none;
+  border-style: none;
+  color: #555555;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 5px 8px;
+  transition: background-color 0.2s ease 0s;
+}
+.ad-order-optView:focus {
+    background: none repeat scroll 0 0 #FFFFFF;
+    outline-width: 0;
+}
 /***** 판매관리 End *****/
 
 /***** 체험관리 *****/
@@ -1108,6 +1154,7 @@ textarea {
 .ad-class-card-img {
     margin-right: 20px;
     flex-grow: 1;
+    min-height: 200px;
 }
 
 .ad-class-card-content {
@@ -1116,6 +1163,7 @@ textarea {
     margin-left: 15px;
     margin-right: 15px;
     flex-grow: 5;
+    max-width:500px;
 }
 
 .ad-class-card-title {

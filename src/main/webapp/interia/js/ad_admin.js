@@ -15,8 +15,16 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$('.modal').on('hidden.bs.modal', function (e) { 
 		$(this).find('form')[0].reset();
+		
 		$('#tname').tagEditor('destroy');
-		/*첨부파일 및 체크박스 옵션, 에디터 초기화 코드 삽입하기*/
+		
+		if( $('#ad-claimRejectForm') > 0) {
+			var template = $('#ad-claimRejectForm');
+			var children = $('#ad-claimRejectForm').children();
+			if(template.children().length > 0) {
+				children.remove();
+			}
+		}
 	});
 });
 

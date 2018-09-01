@@ -27,11 +27,15 @@ public interface WorkshopDao {
     List<Workshop> selectbathtwo(Map<String,Object> params);
     
     
-    List<Workshop> selectListSellerSite();
+    List<Workshop> selectListSellerSite(int no);
     List<Workshop> selectListIntroduce();
-    List<Workshop> selectListSellerSiteBanner();
+    List<Workshop> selectListSellerSiteBanner(int no);
     int update(Workshop workshop);
     int updateIntroduce(Workshop workshop);
     Workshop selectOne(int no);
+    void updTwit(Workshop workshop);
+    void updFacbook(Workshop workshop);
+    void updInsta(Workshop workshop);
+    Object getInfo(int memno);
 
 }
